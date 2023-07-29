@@ -110,7 +110,7 @@ const onStdInfoUpdate = (ele) =>{
     tr[3].innerHTML = updateObj.email; //email td
     tr[4].innerHTML = updateObj.contact; //contact td
 
-
+    
     stdForm.reset();
     stdUpdateBtn.classList.add('d-none')
     stdSubBtn.classList.remove('d-none')
@@ -129,10 +129,11 @@ const onStdDelete = (ele) =>{
         document.getElementById(deleteId).remove();
         //Below code for the after delete student showing total count
         noStdData.innerHTML = `No Of Students Are => ${stdArray.length}`
+        
     }else{
         return
     }
-    
+    location.reload();
 }
 
 const onStdAdd = (eve) =>{
