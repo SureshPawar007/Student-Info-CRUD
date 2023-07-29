@@ -168,7 +168,7 @@ const onStdAdd = (eve) =>{
     
     stdArray.unshift(stdObj);
     //This below line code are when we add the student then increse the count of student data
-    noStdData.innerHTML = `No Of Students Are => ${stdArray.length}`
+    noStdData.innerHTML = `Number Of Students Are => ${stdArray.length}`
     eve.target.reset();
     //this below code is for the show when the student add in the table 
     stdTable.classList.remove('d-none');
