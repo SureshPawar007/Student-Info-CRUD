@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info CRUD</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="bg-success text-center text-white p-4 mb-4">
+        <h1 class="m-0">Student Info Using Web Storage</h1>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                
+                <form id="stdForm">
+                    <div class="form-group">
+                      <label for="fname"><strong>First Name*</strong></label>
+                      <input type="fname" class="form-control" required pattern="[A-Za-z]+" id="fname" placeholder="Enter First name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="lname"><strong>Last Name*</strong></label>
+                        <input type="lname" class="form-control" required pattern="[A-Za-z]+" id="lname" placeholder="Enter Last name">
+  
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><strong>Email*</strong></label>
+                        <input type="email" class="form-control" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" id="email" placeholder="Enter Email">
+  
+                    </div>
+                    <div class="form-group">
+                        <label for="contact"><strong>Contact*</strong></label>
+                        <input type="contact" class="form-control" required pattern="[1-9]{1}[0-9]{9}"  id="contact" placeholder="Enter Contact">
+  
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-primary" id="stdSubBtn">Add Student</button>
+                        <button type="button" class="btn btn-success d-none" id="stdUpdateBtn">Update Student Data</button>
+
+  
+                    </div>
+                    
+
+                  </form>
+            </div>
+            <div class="col-md-8">
+                <p class="alert alert-info font-weight-bold" id="noStdData">
+                    No Student Record Found Yet !!!
+                </p>
+                <div class="table-responsive d-none" id="stdTable">
+                    
+                    <table class="table text-center table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Sr No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stdInfoContainer">
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
