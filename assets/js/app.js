@@ -53,7 +53,7 @@ if(localStorage.getItem("stdData")){
     trTemplating(data);
     stdTable.classList.remove('d-none');
     // noStdData.classList.add('d-none');
-    noStdData.innerHTML = `No Of Students Are => ${data.length}`
+    noStdData.innerHTML = `Number Of Students Are => ${data.length}`
 }else{
     stdTable.classList.add('d-none');
     // noStdData.classList.remove('d-none');
@@ -137,7 +137,7 @@ const onStdDelete = (ele) =>{
         document.getElementById(deleteId).remove()
 
         if (stdArray.length) {
-            noStdData.innerHTML = `Number of Students are ${stdArray.length}`
+            noStdData.innerHTML = `Number Of Students Are => ${stdArray.length}`
         } else {
             //Here remove item from localstorage and if empty local storage then show the no record found msg and d-none table
             localStorage.removeItem('stdData')
