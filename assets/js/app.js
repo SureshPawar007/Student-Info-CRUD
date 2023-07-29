@@ -43,11 +43,13 @@ const trTemplating = (arr) =>{
 }
 
 if(localStorage.getItem("stdData")){
+    //Here we can store localstorage array in the form of string in data variable
     let data = JSON.parse(localStorage.getItem("stdData"));
+    //Here we can check the Array data and local storage data are same then call the trTemplating else not call
     stdArray = data;
     trTemplating(data);
     stdTable.classList.remove('d-none');
-    noStdData.classList.add('d-none');
+    // noStdData.classList.add('d-none');
     noStdData.innerHTML = `No Of Students Are => ${data.length}`
 }else{
     stdTable.classList.add('d-none');
@@ -117,7 +119,9 @@ const onStdInfoUpdate = (ele) =>{
 
 
 }
-// Delete Student Data Code 
+
+// ********************** Delete Student Data Code **********************
+
 const onStdDelete = (ele) =>{
     // cl(ele.closest('tr').id)
     let confirDelete = confirm("Are You Want To Delete This Student...!!")
@@ -130,12 +134,16 @@ const onStdDelete = (ele) =>{
         
         //Below code for the after delete student showing total count
         noStdData.innerHTML = `No Of Students Are => ${stdArray.length}`
+        location.reload();
+        
         
     }else{
-        return
+        return 
     }
-    location.reload();
+    
 }
+
+// ********************** Add Student Data in Array **********************
 
 const onStdAdd = (eve) =>{
     eve.preventDefault();
