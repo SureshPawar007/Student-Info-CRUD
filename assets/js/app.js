@@ -47,7 +47,7 @@ if(localStorage.getItem("stdData")){
     stdArray = data;
     trTemplating(data);
     stdTable.classList.remove('d-none');
-    // noStdData.classList.add('d-none');
+    noStdData.classList.add('d-none');
     noStdData.innerHTML = `No Of Students Are => ${data.length}`
 }else{
     stdTable.classList.add('d-none');
@@ -127,6 +127,7 @@ const onStdDelete = (ele) =>{
         stdArray = stdArray.filter(std =>(std.stdId !== deleteId));
         localStorage.setItem('stdData',JSON.stringify(stdArray))
         document.getElementById(deleteId).remove();
+        
         //Below code for the after delete student showing total count
         noStdData.innerHTML = `No Of Students Are => ${stdArray.length}`
         
