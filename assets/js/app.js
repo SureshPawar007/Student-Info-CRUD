@@ -11,7 +11,10 @@ const noStdData = document.getElementById('noStdData')
 const stdSubBtn = document.getElementById('stdSubBtn')
 const stdUpdateBtn = document.getElementById('stdUpdateBtn')
 
+
+//this is empty array to push the tr 
 let stdArray = [];
+
 
 // Below function is created Unique Id This is ready made function which is availabe of google uuid generator
 function create_UUID(){
@@ -53,10 +56,11 @@ if(localStorage.getItem("stdData")){
     noStdData.innerHTML = `No Of Students Are => ${data.length}`
 }else{
     stdTable.classList.add('d-none');
-    noStdData.classList.remove('d-none');
+    // noStdData.classList.remove('d-none');
+    noStdData.innerHTML = `No Students Record Found Yet...!!`
 }
 
-const onStdEdit = (ele)=>{
+const onStdEdit = (ele) => {
     // cl(ele);
     //using Traversing we can find the id of Edited tr
     // cl(ele.closest('tr').id)
@@ -125,20 +129,27 @@ const onStdInfoUpdate = (ele) =>{
 const onStdDelete = (ele) =>{
     // cl(ele.closest('tr').id)
     let confirDelete = confirm("Are You Want To Delete This Student...!!")
-    if(confirDelete){
-        let deleteId = ele.closest('tr').getAttribute("id");
-        // cl(deleteId)
-        stdArray = stdArray.filter(std =>(std.stdId !== deleteId));
-        localStorage.setItem('stdData',JSON.stringify(stdArray))
-        document.getElementById(deleteId).remove();
-        
-        //Below code for the after delete student showing total count
-        noStdData.innerHTML = `No Of Students Are => ${stdArray.length}`
+    if (confirDelete) {
+        let deleteId = ele.closest('tr').id;
+        cl(deleteId)
+        stdArray = stdArray.filter(std => std.stdId != deleteId)
+        localStorage.setItem('stdData', JSON.stringify(stdArray))
+        document.getElementById(deleteId).remove()
+
+        if (stdArray.length) {
+            noStdData.innerHTML = `Number of Students are ${stdArray.length}`
+        } else {
+            //Here remove item from localstorage and if empty local storage then show the no record found msg and d-none table
+            localStorage.removeItem('stdData')
+            noStdData.innerHTML = 'No Student Record Found Yet !!!'
+            stdTable.classList.add('d-none')
+            
+        }
+        //Below code purpose is that when you delete random student data then relode the page
         location.reload();
-        
-        
-    }else{
-        return 
+
+    } else {
+        return
     }
     
 }
